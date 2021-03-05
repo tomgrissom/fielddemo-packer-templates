@@ -15,29 +15,29 @@
     "winrm_username": "Administrator",
     "winrm_password": "{{ env `SSHPASS`}}",
 
-    "http_server": "https://raw.githubusercontent.com/VMwareCMBUTMM/fielddemo-packer-templates/master/config",
+    "http_server": "https://raw.githubusercontent.com/tomgrissom/fielddemo-packer-templates/master/config",
 
     "ubuntu1804_vm_name": "packer-ubuntu1804",
-    "ubuntu1804_iso": "[sc2c02vsan01] iso/ubuntu-18.04.3-server-amd64.iso",
-    "ubuntu1804_checksum": "7d8e0055d663bffa27c1718685085626cb59346e7626ba3d3f476322271f573e",
+    "ubuntu1804_iso": "[ISOs] ISOs/ubuntu-18.04-server-amd64.iso",
+    "ubuntu1804_checksum": "e2ecdace33c939527cbc9e8d23576381c493b071107207d2040af72595f8990b",
 
     "ubuntu1910_vm_name": "packer-ubuntu1910",
-    "ubuntu1910_iso": "[sc2c02vsan01] iso/ubuntu-19.10-server-amd64.iso",
+    "ubuntu1910_iso": "[ISOs] ISOs/ubuntu-19.10-server-amd64.iso",
     "ubuntu1910_checksum": "921fd8b271c04aa86a321cc35b40e677f9b85f7903bf2204efb2389b0f0a64c1",
 
     "ubuntu2004_vm_name": "packer-ubuntu2004",
-    "ubuntu2004_iso": "[sc2c02vsan01] iso/ubuntu-18.04.3-server-amd64.iso",
-    "ubuntu2004_checksum": "caf3fd69c77c439f162e2ba6040e9c320c4ff0d69aad1340a514319a9264df9f",
+    "ubuntu2004_iso": "[ISOs] ISOs/ubuntu-20.04.2-live-server-amd64.iso",
+    "ubuntu2004_checksum": "d1f2bf834bbe9bb43faf16f9be992a6f3935e65be0edece1dee2aa6eb1767423",
 
     "windows_2016_vm_name": "packer-windows2016",
-    "windows_2016_iso": "[sc2c02vsan01] iso/Windows_Server_2016_Datacenter_EVAL_en-us_14393_refresh.ISO",
+    "windows_2016_iso": "[ISOs] ISOs/SW_DVD9_Win_Server_STD_CORE_2016_64Bit_English_-4_DC_STD_MLF_X21-70526.ISO",
     "windows_2016_checksum": "1ce702a578a3cb1ac3d14873980838590f06d5b7101c5daaccbac9d73f1fb50f",
 
     "centos7_vm_name": "packer-centos7",
-    "centos7_iso": "[sc2c02vsan01] iso/CentOS-7-x86_64-DVD-2003.iso",
-    "centos7_checksum": "087a5743dc6fd6706d9b961b8147423ddc029451b938364c760d75440eb7be14",
+    "centos7_iso": "[ISOs] ISOs/CentOS-7-x86_64-DVD-2009.iso",
+    "centos7_checksum": "e33d7b1ea7a9e2f38c8f693215dd85254c3a4fe446f93f563279715b68d07987",
 
     "centos8_vm_name": "packer-centos8",
-    "centos8_iso": "[sc2c02vsan01] iso/CentOS-8.2.2004-x86_64-dvd1.iso",
-    "centos8_checksum": "c87a2d81d67bbaeaf646aea5bedd70990078ec252fc52f5a7d65ff609871e255"
+    "centos8_iso": "[ISOs] ISOs/CentOS-8.3.2011-x86_64-dvd1.iso",
+    "centos8_checksum": "aaf9d4b3071c16dbbda01dfe06085e5d0fdac76df323e3bbe87cce4318052247"
 }
