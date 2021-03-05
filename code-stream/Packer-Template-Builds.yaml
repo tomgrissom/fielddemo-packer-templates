@@ -210,7 +210,7 @@ stages:
           - externalRegionId=${Prepare Environment.Export Object IDs.output.exports.ExternalRegionId}
           - imageProfileId=${Prepare Environment.Export Object IDs.output.exports.ImageProfileId}
           - ''
-          - '# If there''s an existing image profile, clone it stripping out extra fields, if not, create
+          - '# If tthere''s an existing image profile, clone it stripping out extra fields, if not, create
             one'
           - if [ "$imageProfileId" = "null" ]; then
           - '    jq -n --arg name vsphere-image-profile ''{"name":$name}'' > newImageProfile.json'
