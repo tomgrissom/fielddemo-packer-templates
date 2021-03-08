@@ -5,7 +5,7 @@
             <SetupUILanguage>
                 <UILanguage>en-US</UILanguage>
             </SetupUILanguage>
-            <InputLocale>es-ES</InputLocale>
+            <InputLocale>es-US</InputLocale>
             <SystemLocale>en-US</SystemLocale>
             <UILanguage>en-US</UILanguage>
             <UserLocale>en-US</UserLocale>
@@ -15,30 +15,29 @@
                 <Disk wcm:action="add">
                     <CreatePartitions>
                         <CreatePartition wcm:action="add">
-                            <Type>Primary</Type>
                             <Order>1</Order>
-                            <Size>350</Size>
+                            <Size>500</Size>
+                            <Type>Primary</Type>
                         </CreatePartition>
                         <CreatePartition wcm:action="add">
                             <Order>2</Order>
-                            <Type>Primary</Type>
                             <Extend>true</Extend>
+                            <Type>Primary</Type>
                         </CreatePartition>
                     </CreatePartitions>
                     <ModifyPartitions>
                         <ModifyPartition wcm:action="add">
-                            <Active>true</Active>
-                            <Format>NTFS</Format>
-                            <Label>boot</Label>
                             <Order>1</Order>
                             <PartitionID>1</PartitionID>
+                            <Format>NTFS</Format>
+                            <Label>Boot</Label>
+                            <Active>true</Active>
                         </ModifyPartition>
                         <ModifyPartition wcm:action="add">
-                            <Format>NTFS</Format>
-                            <Label>System</Label>
-                            <Letter>C</Letter>
                             <Order>2</Order>
                             <PartitionID>2</PartitionID>
+                            <Format>NTFS</Format>
+                            <Label>System</Label>
                         </ModifyPartition>
                     </ModifyPartitions>
                     <DiskID>0</DiskID>
@@ -84,10 +83,10 @@
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <AutoLogon>
                 <Password>
-                    <Value>VMware1!</Value>
+                    <Value>S3cr3t0!</Value>
                     <PlainText>true</PlainText>
                 </Password>
-                <LogonCount>2</LogonCount>
+                <LogonCount>1</LogonCount>
                 <Username>Administrator</Username>
                 <Enabled>true</Enabled>
             </AutoLogon>
@@ -161,14 +160,9 @@
                     <Description>Set Temp Folders</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\install-google-chrome.ps1</CommandLine>
+                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\disable-server-manager.ps1</CommandLine>
                     <Order>14</Order>
-                    <Description>Install Google Chrome</Description>
-                </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\install-bginfo.ps1</CommandLine>
-                    <Order>15</Order>
-                    <Description>Install BGinfo</Description>
+                    <Description>Disable Server Manager</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -File a:\enable-winrm.ps1</CommandLine>
@@ -188,7 +182,7 @@
 
             <UserAccounts>
                 <AdministratorPassword>
-                    <Value>VMware1!</Value>
+                    <Value>S3cr3t0!</Value>
                     <PlainText>true</PlainText>
                 </AdministratorPassword>
             </UserAccounts>
