@@ -188,7 +188,7 @@
 
             <UserAccounts>
                 <AdministratorPassword>
-                    <Value>S3cr3t0!</Value>
+                    <Value>VMware1!</Value>
                     <PlainText>true</PlainText>
                 </AdministratorPassword>
             </UserAccounts>
