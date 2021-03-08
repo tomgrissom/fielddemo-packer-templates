@@ -271,7 +271,7 @@
             ],
             "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c Packer_Provisioning_Shutdown",
             "floppy_files": [
-                "{{ template_dir }}/config/autounattend.xml",
+                "{{ template_dir }}/config/2016/autounattend.xml",
                 "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.cat",
                 "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.inf",
                 "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.sys",
@@ -304,7 +304,7 @@
                 "network": "{{user `vcenter_network`}}"
             }],
             "floppy_files": [
-              "{{ template_dir }}/config/autounattend19.xml",
+              "{{ template_dir }}/config/2019/autounattend.xml",
               "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.cat",
               "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.inf",
               "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.sys",
