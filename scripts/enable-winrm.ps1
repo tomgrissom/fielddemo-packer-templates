@@ -1,38 +1,23 @@
-Write-Output "Configuring WinRM for HTTPS..."
-  Set-Item -Path WSMan:\LocalHost\MaxTimeoutms -Value '18000'
-  Set-Item -Path WSMan:\LocalHost\Shell\MaxMemoryPerShellMB -Value '1024'
-  Set-Item -Path WSMan:\LocalHost\Service\AllowUnencrypted -Value 'false'
-  Set-Item -Path WSMan:\LocalHost\Service\Auth\Basic -Value 'true'
-  Set-Item -Path WSMan:\LocalHost\Service\Auth\CredSSP -Value 'true'
+<# Init Log #>;
+Start-Transcript -Path 'C:/Automation/setup.txt' -append;
+<#$DebugPreference = 'Continue' #>;
+<#$VerbosePreference = 'Continue'; #>;
+$InformationPreference = 'Continue';
 
-  New-NetFirewallRule -Name "WINRM-HTTPS-In-TCP" `
-      -DisplayName "Windows Remote Management (HTTPS-In)" `
-      -Description "Inbound rule for Windows Remote Management via WS-Management. [TCP 5986]" `
-      -Group "Windows Remote Management" `
-      -Program "System" `
-      -Protocol TCP `
-      -LocalPort "5986" `
-      -Action Allow `
-      -Profile Domain,Private
+$NetworkListManager = [Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]"{DCB00C01-570F-4A9B-8D69-199FDBA5723B}"))
+$Connections = $NetworkListManager.GetNetworkConnections()
+$Connections | ForEach-Object { $_.GetNetwork().SetCategory(1) }
 
- New-NetFirewallRule -Name "WINRM-HTTPS-In-TCP-PUBLIC" `
-      -DisplayName "Windows Remote Management (HTTPS-In)" `
-      -Description "Inbound rule for Windows Remote Management via WS-Management. [TCP 5986]" `
-      -Group "Windows Remote Management" `
-      -Program "System" `
-      -Protocol TCP `
-      -LocalPort "5986" `
-      -Action Allow `
-      -Profile Public
-
-  $Hostname = [System.Net.Dns]::GetHostByName((hostname)).HostName.ToUpper()
-  $pfx = New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName $Hostname
-  $certThumbprint = $pfx.Thumbprint
-  $certSubjectName = $pfx.SubjectName.Name.TrimStart("CN = ").Trim()
-
-  New-Item -Path WSMan:\LocalHost\Listener -Address * -Transport HTTPS -Hostname $certSubjectName -CertificateThumbPrint $certThumbprint -Port "5986" -force
-
-  Write-Output "Restarting WinRM Service..."
-  Stop-Service WinRM
-  Set-Service WinRM -StartupType "Automatic"
-  Start-Service WinRM
+Enable-PSRemoting -Force
+winrm quickconfig -q
+winrm quickconfig -transport:http
+winrm set winrm/config '@{MaxTimeoutms="1800000"}'
+winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="800"}'
+winrm set winrm/config/service '@{AllowUnencrypted="true"}'
+winrm set winrm/config/service/auth '@{Basic="true"}'
+winrm set winrm/config/client/auth '@{Basic="true"}'
+winrm set winrm/config/listener?Address=*+Transport=HTTP '@{Port="5985"}'
+netsh advfirewall firewall set rule group="Windows Remote Administration" new enable=yes
+netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" new enable=yes action=allow
+Set-Service winrm -startuptype "auto"
+Restart-Service winrm
