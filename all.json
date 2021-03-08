@@ -297,7 +297,7 @@
             "host": "{{user `vcenter_host`}}",
             "insecure_connection": "true",
             "iso_paths": [
-                "{{user `win2019_iso`}}",
+                "{{user `windows_2019_iso`}}",
                 "[] /vmimages/tools-isoimages/windows.iso"
             ],
             "network_adapters": [{
