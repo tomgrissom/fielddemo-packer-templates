@@ -291,7 +291,7 @@
             "convert_to_template": "true",
             "create_snapshot": "false",
             "datastore": "{{user `vcenter_datastore`}}",
-            "disk_controller_type": "pvscsi",
+            "disk_controller_type": "lsilogic-sas",
             "folder": "{{user `vcenter_folder`}}",
             "guest_os_type": "windows9Server64Guest",
             "host": "{{user `vcenter_host`}}",
@@ -305,10 +305,6 @@
             }],
             "floppy_files": [
               "{{ template_dir }}/config/2019/autounattend.xml",
-              "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.cat",
-              "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.inf",
-              "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.sys",
-              "{{ template_dir }}/drivers/pvscsi-win8/txtsetup.oem",
               "{{ template_dir }}/scripts/win_vmtools.cmd",
               "{{ template_dir }}/scripts/win2016.ps1"
           ],
