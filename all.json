@@ -305,6 +305,12 @@
             }],
             "floppy_files": [
               "{{ template_dir }}/config/2019/autounattend.xml",
+              "{{ template_dir }}/scripts/install-vm-tools.cmd",
+              "{{ template_dir }}/scripts/disable-screensaver.ps1",
+              "{{ template_dir }}/scripts/disable-winrm.ps1",
+              "{{ template_dir }}/scripts/enable-winrm.ps1",
+              "{{ template_dir }}/scripts/microsoft-updates.bat",
+              "{{ template_dir }}/scripts/win-updates.ps1"
               "{{ template_dir }}/scripts/win_vmtools.cmd",
               "{{ template_dir }}/scripts/win2016.ps1"
           ],
