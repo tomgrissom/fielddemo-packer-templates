@@ -310,9 +310,7 @@
               "{{ template_dir }}/scripts/disable-winrm.ps1",
               "{{ template_dir }}/scripts/enable-winrm.ps1",
               "{{ template_dir }}/scripts/microsoft-updates.bat",
-              "{{ template_dir }}/scripts/win-updates.ps1",
-              "{{ template_dir }}/scripts/win_vmtools.cmd",
-              "{{ template_dir }}/scripts/win2016.ps1"
+              "{{ template_dir }}/scripts/win-updates.ps1"
           ],
             "notes": "Default User: {{user `winrm_username`}}\nDefault Pass: {{user `winrm_password`}}\nBuilt by Packer @ {{isotime \"2006-01-02 03:04\"}}.",
             "password": "{{user `vcenter_password`}}",
