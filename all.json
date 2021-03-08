@@ -280,6 +280,52 @@
                 "{{ template_dir }}/scripts/win2016.ps1"
             ],
             "remove_cdrom": "true"
+        },
+        {
+            "name": "Windows2019",
+            "CPUs": "2",
+            "RAM": "4096",
+            "RAM_reserve_all": false,
+            "boot_order": "disk,cdrom",
+            "cluster": "{{user `vcenter_cluster`}}",
+            "convert_to_template": "true",
+            "create_snapshot": "false",
+            "datastore": "{{user `vcenter_datastore`}}",
+            "disk_controller_type": "pvscsi",
+            "folder": "{{user `vcenter_folder`}}",
+            "guest_os_type": "windows9Server64Guest",
+            "host": "{{user `vcenter_host`}}",
+            "insecure_connection": "true",
+            "iso_paths": [
+                "{{user `win2019_iso`}}",
+                "[] /vmimages/tools-isoimages/windows.iso"
+            ],
+            "network_adapters": [{
+                "network": "{{user `vcenter_network`}}"
+            }],
+            "floppy_files": [
+              "{{ template_dir }}/config/autounattend.xml",
+              "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.cat",
+              "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.inf",
+              "{{ template_dir }}/drivers/pvscsi-win8/pvscsi.sys",
+              "{{ template_dir }}/drivers/pvscsi-win8/txtsetup.oem",
+              "{{ template_dir }}/scripts/win_vmtools.cmd",
+              "{{ template_dir }}/scripts/win2016.ps1"
+          ],
+            "notes": "Default User: {{user `winrm_username`}}\nDefault Pass: {{user `winrm_password`}}\nBuilt by Packer @ {{isotime \"2006-01-02 03:04\"}}.",
+            "password": "{{user `vcenter_password`}}",
+            "remove_cdrom": true,
+            "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c Packer_Provisioning_Shutdown",
+            "winrm_username": "{{user `winrm_username`}}",
+            "winrm_password": "{{user `winrm_password`}}",
+            "storage": [{
+                "disk_size": "76800",
+                "disk_thin_provisioned": true
+            }],
+            "type": "vsphere-iso",
+            "username": "{{user `vcenter_username`}}",
+            "vcenter_server": "{{user `vcenter_server`}}",
+            "vm_name": "{{ user `windows_2019_vm_name` }}-{{user `buildtime`}}"
         }
     ],
     "provisioners": [{
