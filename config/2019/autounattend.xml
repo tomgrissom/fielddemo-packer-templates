@@ -86,7 +86,7 @@
                     <Value>VMware1!</Value>
                     <PlainText>true</PlainText>
                 </Password>
-                <LogonCount>2</LogonCount>
+                <LogonCount>3</LogonCount>
                 <Username>Administrator</Username>
                 <Enabled>true</Enabled>
             </AutoLogon>
