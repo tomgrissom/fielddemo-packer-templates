@@ -311,6 +311,7 @@
               "{{ template_dir }}/scripts/disable-server-manager.ps1",
               "{{ template_dir }}/scripts/enable-winrm.ps1",
               "{{ template_dir }}/scripts/set-temp.ps1",
+              "{{ template_dir }}/scripts/enable-rdp.cmd",
               "{{ template_dir }}/scripts/microsoft-updates.bat",
               "{{ template_dir }}/scripts/win-updates.ps1"
           ],
